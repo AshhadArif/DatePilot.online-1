@@ -9,8 +9,6 @@ export const OPERATOR = 'Fahad'
 export const AUTHOR_NAME = 'Fahad'
 export const AUTHOR_ROLE = 'Founder and editor'
 export const AUTHOR_PATH = '/about/author'
-export const SITE_LAUNCH_DATE = '2026-09-22'
-export const REVIEW_DATE = '2026-11-16'
 
 const ORG_ID = `${SITE_URL}/#organization`
 const PERSON_ID = `${SITE_URL}/#person`
@@ -27,7 +25,6 @@ export const organizationNode = {
   alternateName: 'DatePilot.online',
   url: `${SITE_URL}/`,
   email: CONTACT_EMAIL,
-  foundingDate: SITE_LAUNCH_DATE,
   description:
     'An independent date, calendar, and time reference with stated methods, worked examples, and linked primary sources.',
   publishingPrinciples: `${SITE_URL}/editorial-policy/`,

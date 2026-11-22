@@ -4,14 +4,17 @@ DatePilot.online is a focused date, calendar, and time utility platform for calc
 
 ## Implementation
 
-The application is a Vite React TypeScript site. It includes the home experience, date and time tool indexes, the initial calculator routes, guide routes, and trust pages.
+The application is a Vite React TypeScript site with prerendered pages for its calculators, guides, navigation hubs, and trust pages.
 
 ```text
 npm install
 npm run dev
 npm run build
+npm run audit:pages
 npm run lint
 ```
+
+Run `npm run build` before `npm run audit:pages`. The audit checks the generated sitemap routes for page content, unique titles and descriptions, canonical URLs, internal links, the AdSense review snippet, and the matching `ads.txt` publisher record. Its word counts are diagnostics, not minimum-length targets.
 
 ## Internal documentation
 
@@ -19,4 +22,4 @@ Planning and operational documents live under [`internal/docs/`](internal/docs/)
 
 ## Status
 
-Initial implementation phase. Calculator and content coverage still require the full QA, editorial, accessibility, and human legal review described in the launch checklist.
+The repository includes calculation and content integrity checks. Live hosting behavior, account ownership, and any legal review still require checks outside the repository.

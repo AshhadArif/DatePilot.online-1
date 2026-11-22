@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { lastmod } from '../src/content/lastmod.ts'
-import { authorRef, organizationNode, personNode, publisherRef, SITE_LAUNCH_DATE } from '../src/site.ts'
+import { authorRef, organizationNode, personNode, publisherRef } from '../src/site.ts'
 import { render } from '../.ssr/entry-server.js'
 
 const root = process.cwd()
@@ -15,12 +15,10 @@ const routes = {
   '/time': ['Time Tools — Countdown, Time Difference, Time Zone Converter', 'Count down to a date, compare elapsed time, and convert between time zones using DatePilot time tools.'],
   '/guides': ['Date and Time Guides — Calculations, Calendars, Time Zones', 'Practical explanations for date calculations, calendar rules, time zones, and date formats.'],
   '/faq': ['Frequently Asked Questions — DatePilot', 'Answers about DatePilot calculations, endpoint conventions, privacy, and how date tools work.'],
-  '/calculators/date-calculator': ['Date Calculator — Add or Subtract Days From a Date', 'Add or subtract any number of days from a starting date. The calculator handles month lengths, leap years, and year boundaries automatically.'],
+  '/calculators/date-calculator': ['Date Calculator — Add or Subtract Days From a Date', 'Move a date forward or backward by days, weeks, months, or years. See how calendar arithmetic handles month lengths, leap years, and year boundaries.'],
   '/calculators/age-calculator': ['Age Calculator — Calculate Exact Age in Years, Months, Days', 'Calculate calendar age from a birth date to any target date. Learn why age differs from total days divided by 365.'],
   '/calculators/days-between-dates': ['Days Between Dates — Date Difference Calculator', 'Count the elapsed calendar days between two dates. Understand exclusive versus inclusive counting and endpoint conventions.'],
   '/calculators/days-calculator': ['Days Calculator — Days From Today, Before & Between Dates', 'Work out dates from a day count: what date is a number of days from today, what date was a number of days ago, and the days between dates.'],
-  '/calculators/add-days': ['Add Days to Date — Calculate a Future Date in Days', 'Add days to a date to find the resulting future calendar date and weekday across month and year boundaries.'],
-  '/calculators/subtract-days': ['Subtract Days From Date — Calculate a Date in the Past', 'Subtract days from a date to find an earlier calendar date, borrowing correctly across month and year boundaries.'],
   '/calculators/working-days': ['Working Days Calculator — Count Business Days Between Dates', 'Count weekdays between two dates. Understand the Monday–Friday rule and why holidays are separate.'],
   '/calculators/business-date-calculator': ['Business Date Calculator — Add or Subtract Business Days', 'Move any date forward or backward by a set number of weekdays. Monday to Friday only; public holidays are not removed automatically.'],
   '/calculators/age-difference-calculator': ['Age Difference Calculator — Gap Between Two Birth Dates', 'Compare two birth dates and read the gap in years, months, and days plus total calendar days, in either input order.'],
@@ -43,7 +41,7 @@ const routes = {
   '/editorial-policy': ['Editorial Standards and Review Process — DatePilot', 'How DatePilot researches, writes, checks, reviews, and corrects its date calculators and guides, including its use of automation.'],
   '/methodology': ['How DatePilot Tests Its Calculators — Methodology', 'The calculation pipeline, test strategy, reproducible examples, known limitations, and tool-by-tool verification focus behind DatePilot.'],
   '/changelog': ['DatePilot Changelog — Site and Content History', 'A dated record of material changes to DatePilot calculators, guides, sources, policies, and trust pages.'],
-  '/advertising-policy': ['Advertising Status and Editorial Independence — DatePilot', 'DatePilot has applied to Google AdSense. Read the current status, editorial commitments, and planned privacy safeguards.'],
+  '/advertising-policy': ['Advertising Status and Editorial Independence — DatePilot', 'DatePilot is not currently approved to show AdSense ads. Read the current status, editorial commitments, and planned privacy safeguards.'],
   '/contact': ['Contact DatePilot — Report Issues and Corrections', 'Report incorrect calculations, broken links, accessibility issues, or other problems with DatePilot.'],
   '/privacy-policy': ['Privacy Policy — How DatePilot Handles Your Data', 'DatePilot calculators run in your browser. Read how we handle calculator inputs, the AdSense review code, cookies, and server logs.'],
   '/cookie-policy': ['Cookie Policy — DatePilot', 'Learn how DatePilot handles browser data now and what may change if Google AdSense approves the site.'],
@@ -116,7 +114,6 @@ for (const [route, [title, description]] of Object.entries(routes)) {
     isPartOf: { '@id': `${siteUrl}/#website` },
     inLanguage: 'en',
     isAccessibleForFree: true,
-    datePublished: SITE_LAUNCH_DATE,
     dateModified: lastmod[route],
     author: authorRef,
     publisher: publisherRef,

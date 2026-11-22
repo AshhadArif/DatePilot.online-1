@@ -108,44 +108,6 @@ export const toolTrust: Record<string, ToolTrust> = {
       'Ignores the time of day.',
     ],
   },
-  'add-days': {
-    formula:
-      'Calendar days are added to the start date. Weeks are converted to 7-day steps; months and years use calendar-month addition with end-of-month clamping. The resulting weekday is shown with the date.',
-    assumptions: [
-      'The start date is day zero.',
-      'The amount is a whole number; negative input moves backward.',
-      'The weekday is formatted in the visitor\'s locale.',
-    ],
-    examples: [
-      { input: '20 December 2026 + 20 days', result: '9 January 2027 (Saturday)', note: 'Crosses a year boundary.' },
-      { input: '31 January 2026 + 1 day', result: '1 February 2026 (Sunday)' },
-      { input: '15 January 2026 + 2 weeks', result: '29 January 2026 (Thursday)' },
-    ],
-    limits: [
-      'Does not skip weekends or public holidays.',
-      'Month and year units are calendar-based, not fixed durations.',
-      'Ignores the time of day.',
-    ],
-  },
-  'subtract-days': {
-    formula:
-      'Calendar days are subtracted from the start date. The calculator borrows from the previous month and year as needed. Weeks, months, and years use the same calendar rules as addition.',
-    assumptions: [
-      'The start date is day zero.',
-      'A positive amount moves backward; a negative amount moves forward.',
-      'Month-end results are clamped to the last valid day.',
-    ],
-    examples: [
-      { input: '5 January 2026 − 10 days', result: '26 December 2025 (Friday)', note: 'Crosses a year boundary.' },
-      { input: '1 March 2026 − 1 day', result: '28 February 2026 (Saturday)' },
-      { input: '31 March 2026 − 1 month', result: '28 February 2026 (Saturday)', note: 'End-of-month clamp.' },
-    ],
-    limits: [
-      'Does not skip weekends or public holidays.',
-      'Month-end clamping can surprise: 31 March minus 1 month is 28 February, not 3 March.',
-      'Ignores the time of day.',
-    ],
-  },
   'working-days': {
     formula:
       'The calculator counts Monday-to-Friday dates between the two endpoints, including both endpoints when they are weekdays. Saturday and Sunday are excluded.',

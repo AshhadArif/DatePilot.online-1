@@ -172,7 +172,7 @@ export const workContent: Record<string, ToolContent> = {
             headers: ['Question', 'Unit', 'Right tool'],
             rows: [
               ['What date is 10 business days after 1 October 2026?', 'Business days', 'This calculator'],
-              ['What date is 10 calendar days after 1 October 2026?', 'Calendar days', 'Add Days to Date'],
+              ['What date is 10 calendar days after 1 October 2026?', 'Calendar days', 'Date Calculator'],
               ['How many weekdays are between two dates?', 'Business days (count)', 'Working Days Calculator'],
               ['How many total days are between two dates?', 'Calendar days', 'Days Between Dates'],
             ],
@@ -239,12 +239,12 @@ export const workContent: Record<string, ToolContent> = {
       {
         heading: 'Related Tools',
         blocks: [
-          { type: 'p', text: 'Count the weekdays inside an existing range with the [Working Days Calculator](/calculators/working-days), add ordinary calendar days with [Add Days to Date](/calculators/add-days), check the total gap with [Days Between Dates](/calculators/days-between-dates), and read the underlying rules in the [Working Days Explained](/guides/working-days) guide.' },
+          { type: 'p', text: 'Count the weekdays inside an existing range with the [Working Days Calculator](/calculators/working-days), move by ordinary calendar days with the [Date Calculator](/calculators/date-calculator), check the total gap with [Days Between Dates](/calculators/days-between-dates), and read the underlying rules in the [Working Days Explained](/guides/working-days) guide.' },
         ],
       },
     ],
     guideSlugs: ['working-days', 'days-between-dates', 'add-subtract-days', 'date-calculations'],
-    related: ['working-days', 'days-between-dates', 'add-days', 'date-calculator'],
+    related: ['working-days', 'days-between-dates', 'date-calculator'],
     faqs: [
       ['Does this calculator exclude public holidays?', 'No. Every step is a Monday-to-Friday day: weekend days are skipped, but no public holiday is removed automatically. If your deadline treats a holiday as free time, subtract those dates yourself before or after running the count.'],
       ['Does it count the start date?', 'No. The walk begins on the day after your start date (or the day before, when subtracting). The start date is the reference point, not part of the count. This differs from the Working Days Calculator, which counts both endpoints of a range.'],

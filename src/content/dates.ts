@@ -2,7 +2,7 @@ import type { ToolContent } from './types'
 
 export const dateContent: Record<string, ToolContent> = {
   'date-calculator': {
-    answer: 'A date calculator works out a new calendar date from any starting date and a number of days. Add days to move forward, enter a negative number to move back, and the calculator handles month lengths, leap years, and year boundaries for you.',
+    answer: 'Move a date forward or backward by days, weeks, months, or years. Enter a positive amount to move ahead or a negative amount to move back; the calculator follows real month lengths, leap years, and year boundaries.',
     intro: [
       'Most date questions come down to one of two things: what date is a certain number of days away, or how many days lie between two dates. This calculator answers the first question. Give it a starting date and a number of days, and it returns the exact calendar date — including the weekday — without you counting across February, 31-day months, or a new year.',
       'It also works backwards. Enter a negative number of days to find a date in the past, which is the quickest way to answer "what date was 30 days ago?" or to work back from a deadline.',
@@ -42,7 +42,7 @@ export const dateContent: Record<string, ToolContent> = {
         blocks: [
           { type: 'p', text: 'To move forward, enter the starting date and a positive number of days. The result is the date that falls exactly that many calendar days later — the usual answer to "what date is 30 days from now?"' },
           { type: 'p', text: 'A simple worked case: 15 January 2026 plus 30 days. January has 31 days, so 16 more days reach 31 January; the remaining 14 days fall into February, giving 14 February 2026. Entering the same calculation in the calculator produces the same result without counting by hand.' },
-          { type: 'p', text: 'For more examples of moving forward, including the common 7, 30, 60, 90, and 100-day spans, see [Add Days to Date](/calculators/add-days).' },
+          { type: 'p', text: 'For more examples of moving forward, including common 7, 30, 60, 90, and 100-day spans, use this Date Calculator with a positive amount.' },
         ],
       },
       {
@@ -50,7 +50,7 @@ export const dateContent: Record<string, ToolContent> = {
         blocks: [
           { type: 'p', text: 'To move backward, enter the same kind of calculation with a negative number of days. The calculator walks back through the calendar, borrowing from the previous month when the subtraction passes day 1, and borrows a year when it passes 1 January.' },
           { type: 'p', text: '5 January 2026 minus 10 days gives 26 December 2025, because the count crosses the year boundary. The result changes year as well as date — a detail that manual counting often misses.' },
-          { type: 'p', text: 'The dedicated [Subtract Days From Date calculator](/calculators/subtract-days) covers this direction in more detail, including working back from deadlines. When the rule involves business days, buffers, or both directions, the [Deadline Calculator](/calculators/deadline-calculator) handles the whole plan on one screen.' },
+          { type: 'p', text: 'Use a negative amount to move backward, including across a month or year boundary. When the rule involves business days or a safety buffer, the [Deadline Calculator](/calculators/deadline-calculator) handles the plan on one screen.' },
         ],
       },
       {
@@ -154,12 +154,12 @@ export const dateContent: Record<string, ToolContent> = {
       {
         heading: 'Related Date Tools',
         blocks: [
-          { type: 'p', text: 'If you already know both ends of a period, count it with [Days Between Dates](/calculators/days-between-dates). For a single direction, use [Add Days to Date](/calculators/add-days) or [Subtract Days From Date](/calculators/subtract-days). Planning a due date in either direction — with buffers and business-day rules — belongs to the [Deadline Calculator](/calculators/deadline-calculator), and planning a whole series of them belongs to the [Recurring Date Calculator](/calculators/recurring-date-calculator). Business deadlines should be checked against [Working Days](/calculators/working-days), age questions against the [Age Calculator](/calculators/age-calculator), and planning questions against the [Day of the Week calculator](/calendar/day-of-week).' },
+          { type: 'p', text: 'If you already know both ends of a period, count it with [Days Between Dates](/calculators/days-between-dates). For a one-way calendar move, use a positive amount to move forward or a negative amount to move backward in this calculator. Planning a due date with buffers and business-day rules belongs to the [Deadline Calculator](/calculators/deadline-calculator), and planning a whole series belongs to the [Recurring Date Calculator](/calculators/recurring-date-calculator). Business deadlines should be checked against [Working Days](/calculators/working-days), age questions against the [Age Calculator](/calculators/age-calculator), and planning questions against the [Day of the Week calculator](/calendar/day-of-week).' },
         ],
       },
     ],
     guideSlugs: ['date-calculations', 'add-subtract-days'],
-    related: ['add-days', 'subtract-days', 'days-between-dates', 'working-days'],
+    related: ['days-between-dates', 'working-days'],
     faqs: [
       ['What happens if I add days that cross February?', 'The calculator handles it automatically. 31 January 2026 plus 1 day is 1 February 2026, and if the year is a leap year February has 29 days instead of 28, so a span that crosses 29 February is one day longer than the same span in a common year.'],
       ['Can I subtract days instead of adding?', 'Yes. Enter a negative number of days, for example -30, and the calculator moves the date backward across month and year boundaries.'],
@@ -316,7 +316,7 @@ export const dateContent: Record<string, ToolContent> = {
         heading: 'More Ways to Compare Two Dates',
         blocks: [
           { type: 'p', text: 'A day count is only one way to express a difference. Break the same span into weeks and days with the [Days Calculator](/calculators/days-calculator), find the weekday of either endpoint with the [Day of the Week calculator](/calendar/day-of-week), or compare two moments in clock time with the [Time Difference Calculator](/time/time-difference).' },
-          { type: 'p', text: 'When the question runs in one direction instead — the date that falls before a deadline, a notice period worked backwards — the [Subtract Days From Date calculator](/calculators/subtract-days) and the [Add Days to Date calculator](/calculators/add-days) move from a date in a single step, while the [Deadline Calculator](/calculators/deadline-calculator) adds business-day counting and buffers to the same move.' },
+          { type: 'p', text: 'When the question runs in one direction instead — the date that falls before a deadline or a notice period worked backwards — enter a negative amount in the [Date Calculator](/calculators/date-calculator). The [Deadline Calculator](/calculators/deadline-calculator) adds business-day counting and buffers to that move.' },
           { type: 'p', text: 'For the conventions behind endpoint counting and why two sources can disagree by a day, read [How to Calculate Days Between Dates](/guides/days-between-dates).' },
         ],
       },
@@ -432,7 +432,7 @@ export const dateContent: Record<string, ToolContent> = {
       },
     ],
     guideSlugs: ['date-calculations', 'add-subtract-days'],
-    related: ['days-between-dates', 'date-calculator', 'add-days', 'subtract-days'],
+    related: ['days-between-dates', 'date-calculator'],
     faqs: [
       ['What date is a number of days from today?', 'Enter the number of days and leave the reference date on today. The calculator returns the calendar date and weekday. The "Days From Today" table above already shows the most common offsets, updated each time you load the page.'],
       ['Does a days calculator include weekends?', 'Yes. Plain day counts include Saturdays, Sundays, and holidays. Only working-day or business-day calculations exclude weekends, and those are handled by the [Working Days Calculator](/calculators/working-days).'],
@@ -445,262 +445,6 @@ export const dateContent: Record<string, ToolContent> = {
     ],
   },
 
-  'add-days': {
-    answer: 'Add days to a date to find a future calendar date. Enter a starting date and the number of days to add, and the calculator returns the resulting date, handling month lengths, leap years, and year boundaries automatically.',
-    intro: [
-      'Adding days to a date is the most common piece of calendar arithmetic: a payment due 30 days after an invoice, a return window that closes 60 days after purchase, a project deadline 90 days from today. The arithmetic is simple in principle and easy to get wrong in practice, because the months in between do not all have the same number of days.',
-      'Enter a starting date and a number of days, and this calculator returns the future date — including the weekday it falls on, so you can see straight away whether it lands on a weekend.',
-    ],
-    howTo: [
-      'Select the starting date. It defaults to today.',
-      'Enter a whole number to add, and pick the unit — days, weeks, months, or years.',
-      'Select "Calculate result".',
-      'Check the resulting month, year, and weekday, especially if the span crosses February or 31 December.',
-      'If the date must be a working day, count business days instead with the [Working Days Calculator](/calculators/working-days).',
-    ],
-    sections: [
-      {
-        heading: 'How to Add Days to a Date',
-        blocks: [
-          {
-            type: 'ol',
-            items: [
-              'Count the days remaining in the start month, up to and including its last day.',
-              'Subtract that from the number of days you are adding.',
-              'Step forward through the following months, using each month\'s real length, until the remainder is used up.',
-              'The leftover days become the day of the month in the final month.',
-            ],
-          },
-          { type: 'p', text: 'Take 15 January 2026 plus 30 days. January has 31 days, so 16 days reach 31 January and 14 days remain. Those 14 days fall into February, giving 14 February 2026. The calculator performs exactly this sequence.' },
-        ],
-      },
-      {
-        heading: 'How the Add Days Calculator Works',
-        blocks: [
-          { type: 'p', text: 'The calculator takes the starting date, adds the number of days to its day-of-month value, and normalises the result against the calendar. If the value runs past the end of the month it rolls into the next month; past December and it rolls into the next year.' },
-          { type: 'p', text: 'Nothing is assumed about month length or leap years, because the calendar itself decides. The calculation works on calendar dates rather than clock timestamps, so daylight saving transitions do not shift the result by an hour.' },
-        ],
-      },
-      {
-        heading: 'Examples of Adding Days to a Date',
-        blocks: [
-          {
-            type: 'table',
-            headers: ['Starting date', 'Days added', 'Result', 'Weekday'],
-            rows: [
-              ['31 January 2026', '1', '1 February 2026', 'Sunday'],
-              ['15 January 2026', '30', '14 February 2026', 'Saturday'],
-              ['28 February 2026', '1', '1 March 2026', 'Sunday'],
-              ['20 December 2026', '20', '9 January 2027', 'Saturday'],
-              ['15 March 2026', '45', '29 April 2026', 'Wednesday'],
-            ],
-          },
-          { type: 'p', text: 'The first row is the classic edge case: 31 January plus 1 day is 1 February, never "32 January". The second crosses February, and the fourth crosses a year boundary.' },
-          { type: 'p', text: 'A quick way to sanity-check any of these results without redoing the calendar arithmetic: convert the span into weeks and days first. 45 days is 6 weeks and 3 days, so the weekday must land exactly three weekdays after the starting weekday — 15 March 2026 is a Sunday and 29 April 2026 is a Wednesday, three weekdays later. The same check works for 7 days (always the same weekday), 30 days (4 weeks and 2 days, so two weekdays later), and 100 days (14 weeks and 2 days).' },
-        ],
-      },
-      {
-        heading: 'Adding 7, 30, 60, 90, or 100 Days to a Date',
-        blocks: [
-          { type: 'p', text: 'These are the spans people ask for most often, and each has a slightly different behaviour worth knowing:' },
-          {
-            type: 'table',
-            headers: ['Span', 'Equivalent', 'Typical use'],
-            rows: [
-              ['7 days', 'Exactly 1 week', 'A week from today, weekly recurring dates'],
-              ['30 days', 'A short month, not always one calendar month', 'Payment terms, notice periods, trial periods'],
-              ['60 days', 'Two short months', 'Longer notice periods, review cycles'],
-              ['90 days', 'About three months', 'Quarterly deadlines, probation periods, warranty checks'],
-              ['100 days', 'Just over three months', 'Project milestones, campaign periods'],
-            ],
-          },
-          { type: 'p', text: 'None of these equals "one month" or "three months" in calendar terms. A 30-day span from 1 January reaches 31 January, while a one-month span reaches 1 February. Use days when the agreement specifies days, and calendar months when it specifies months.' },
-          { type: 'component', name: 'days-from-today' },
-        ],
-      },
-      {
-        heading: 'Adding Days Across Months and Years',
-        blocks: [
-          { type: 'p', text: 'Crossing a month boundary is where manual counting fails. Months run from 28 to 31 days, so the same number of days lands in a different month depending on where you start. Two spans of 30 days beginning on 1 January and on 1 February reach completely different dates.' },
-          { type: 'p', text: 'Crossing a year boundary changes the year as well as the date: 20 December 2026 plus 20 days is 9 January 2027. The calculator rolls the year automatically, which is the step most often forgotten when people count on their fingers.' },
-          { type: 'p', text: 'The longest spans in the table above show the pattern clearly. 90 days is 12 weeks and 6 days, so it lands six weekdays after the starting weekday — Monday 28 September 2026 plus 90 days is Sunday 27 December 2026. 365 days is 52 weeks and 1 day, so a full common year always shifts the weekday by one: 28 September 2026 plus 365 days is Tuesday 28 September 2027. Only when the span crosses 29 February does a second weekday shift appear.' },
-        ],
-      },
-      {
-        heading: 'What Happens When the Calculation Crosses a Leap Year?',
-        blocks: [
-          { type: 'p', text: 'A leap year adds 29 February, so any span that crosses that day is one day longer than the same span in a common year. Adding 1 day to 28 February 2026 gives 1 March 2026; adding 1 day to 28 February 2028, a leap year, gives 29 February 2028.' },
-          { type: 'p', text: 'You do not need to check anything yourself — the calculator reads the calendar for the year in question. But it is worth checking when you are verifying a result by hand or comparing two sources. The [Leap Year Calculator](/calendar/leap-year) tells you instantly whether a given year has 366 days.' },
-        ],
-      },
-      {
-        heading: 'Common Date Calculation Mistakes',
-        blocks: [
-          {
-            type: 'ul',
-            items: [
-              'Assuming every month has 30 days, or that one month equals 30 days.',
-              'Counting the starting date as day one, which pushes the result one day too far.',
-              'Forgetting that February has 28 or 29 days when checking the answer manually.',
-              'Missing the year change when the span crosses 31 December.',
-              'Ignoring the weekday of the result — a deadline landing on a Saturday may need to move.',
-            ],
-          },
-        ],
-      },
-      {
-        heading: 'Related Tools',
-        blocks: [
-          { type: 'p', text: 'Move in the opposite direction with [Subtract Days From Date](/calculators/subtract-days), handle both directions in one place with the [Date Calculator](/calculators/date-calculator), measure a span you already have with [Days Between Dates](/calculators/days-between-dates), and check weekday-only deadlines with the [Working Days Calculator](/calculators/working-days).' },
-        ],
-      },
-    ],
-    guideSlugs: ['add-subtract-days', 'date-calculations'],
-    related: ['subtract-days', 'date-calculator', 'days-between-dates', 'working-days'],
-    faqs: [
-      ['What if the starting date is 31 January and I add 1 day?', 'The result is 1 February, because January has only 31 days and the calendar rolls into the next month. There is no 32 January.'],
-      ['Can I add a large number of days?', 'Yes. Any whole number works, including spans of several years. For very long spans it is often easier to read the result as a date and then check the weekday and the working-day count separately.'],
-      ['Is adding 30 days the same as adding one month?', 'No. One calendar month is between 28 and 31 days depending on the month, while 30 days is always 30 days. From 1 January, 30 days later is 31 January, but one month later is 1 February.'],
-      ['Does daylight saving affect the result?', 'No. The calculator works with calendar days rather than elapsed hours, so a 23-hour or 25-hour day still counts as exactly one day.'],
-    ],
-    sources: [
-      ['NIST — What Time is It? FAQs', 'https://www.nist.gov/pml/time-and-frequency-division/what-time-it-faqs'],
-      ['NASA — Calendars and their History', 'https://eclipse.gsfc.nasa.gov/SEhelp/calendars.html'],
-      ['ISO — ISO 8601 date and time format', 'https://www.iso.org/iso-8601-date-and-time-format.html'],
-    ],
-  },
-
-  'subtract-days': {
-    answer: 'Subtract days from a date to find a past calendar date. Enter a reference date and the number of days to take away, and the calculator returns the earlier date, crossing month and year boundaries correctly.',
-    intro: [
-      'Subtracting days from a date is how you answer questions like "what date was 30 days ago?", "when did this period start?", or "what is the latest filing date 30 days before the hearing?". The arithmetic runs backwards through the calendar, borrowing from the previous month whenever the count passes day 1.',
-      'Enter a reference date and a positive number of days. The calculator returns the earlier date and the weekday it falls on, so the answer is unambiguous even when the count crosses February or the end of the year.',
-    ],
-    howTo: [
-      'Select the reference date — the date you are counting backward from.',
-      'Enter a positive number to subtract, and pick the unit — days, weeks, months, or years.',
-      'Select "Calculate result".',
-      'Check the resulting month and year, since a backward count often crosses into the previous year.',
-    ],
-    sections: [
-      {
-        heading: 'How to Subtract Days From a Date',
-        blocks: [
-          {
-            type: 'ol',
-            items: [
-              'Count backward from the reference date through the days remaining in its month.',
-              'When the count passes day 1, continue into the previous month, using that month\'s real length.',
-              'When the count passes 1 January, continue into the previous year.',
-              'The remaining days give the day of the month in the final date.',
-            ],
-          },
-          { type: 'p', text: 'For example, 31 January 2026 minus 31 days reaches 31 December 2025, because the count uses all of January and then the last day of December. The same calculation a year earlier gives a different month boundary, which is exactly why the tool is safer than mental arithmetic.' },
-        ],
-      },
-      {
-        heading: 'How the Subtract Days Calculator Works',
-        blocks: [
-          { type: 'p', text: 'The calculator applies a negative day offset to the reference date and normalises the result against the calendar. When the day value falls below 1 it borrows from the previous month, and below January it borrows from the previous year.' },
-          { type: 'p', text: 'The calculation operates on calendar dates, so daylight saving does not affect it, and February is treated according to the year being crossed: 28 days in a common year, 29 in a leap year.' },
-        ],
-      },
-      {
-        heading: 'Examples of Subtracting Days',
-        blocks: [
-          {
-            type: 'table',
-            headers: ['Reference date', 'Days subtracted', 'Result', 'Weekday'],
-            rows: [
-              ['31 January 2026', '1', '30 January 2026', 'Friday'],
-              ['1 March 2026', '1', '28 February 2026', 'Saturday'],
-              ['5 January 2026', '10', '26 December 2025', 'Friday'],
-              ['31 January 2026', '31', '31 December 2025', 'Wednesday'],
-              ['28 September 2026', '30', '29 August 2026', 'Saturday'],
-              ['28 September 2026', '90', '30 June 2026', 'Tuesday'],
-            ],
-          },
-          { type: 'p', text: 'The second row is the leap-year check: 1 March 2026 minus 1 day gives 28 February 2026, while in 2028 it would give 29 February.' },
-        ],
-      },
-      {
-        heading: 'Worked Example: 3 March 2026 Minus 45 Days',
-        blocks: [
-          { type: 'p', text: 'Long subtractions are a series of borrows, one month at a time. Take 3 March 2026 (a Tuesday) minus 45 days. The calculator does it in a single pass, but walking through the same steps by hand shows exactly where each group of days goes:' },
-          {
-            type: 'ol',
-            items: [
-              'Borrow back to the start of March: 3 days takes you to 28 February 2026, leaving 45 − 3 = 42 days still to subtract.',
-              'February 2026 has 28 days because 2026 is not a leap year, so 27 more days reaches 1 February — 42 − 27 = 15 days left.',
-              'January has 31 days, so 15 days back from 1 February lands on 17 January 2026.',
-              'No year change is needed because the result stays inside 2026, but a count starting later in the year would cross 31 December as well.',
-            ],
-          },
-          { type: 'p', text: 'The answer is Saturday 17 January 2026. A quick check catches most mistakes: 45 days is 6 weeks and 3 days, so the result must be exactly three weekdays before the start — three weekdays before Tuesday is Saturday.' },
-        ],
-      },
-      {
-        heading: 'Subtracting Months and Years: End-of-Month Clamping',
-        blocks: [
-          { type: 'p', text: 'When the unit is months or years instead of days, there is no partial-month borrowing: the day of the month is kept where it exists and clamped to the last valid day where it does not. 31 March 2026 minus 1 month is 28 February 2026, because February 2026 has no 31st. The same subtraction in a leap year clamps one day later: 31 March 2028 minus 1 month is 29 February 2028.' },
-          { type: 'p', text: 'Clamping also crosses years cleanly. 31 January 2026 minus 1 month is 31 December 2025 — the day number survives and only the month changes — while 29 February 2024 minus 1 year falls back to 28 February 2023, because 2023 has no 29th. Whole-year subtractions follow the same leap-year rule as day counts: a span that crosses 29 February is one day longer than the identical span in a common year.' },
-          { type: 'note', text: 'Months and days are not interchangeable going backwards either: 31 March 2026 minus 30 days is 1 March 2026, while minus 1 month is 28 February 2026 — a two-day difference from the same starting date.' },
-        ],
-      },
-      {
-        heading: 'Days Before Today',
-        blocks: [
-          { type: 'p', text: 'To find a date in the recent past, set the reference date to today and subtract the number of days. The [Days Calculator](/calculators/days-calculator) shows both directions at once — the date before today and the date after today — which is usually faster when you are working around a fixed point such as a contract date or a report period.' },
-          { type: 'p', text: 'Working backwards is also the natural way to find the start of a period. If you know a review covers the last 90 days and ends today, subtracting 90 gives the first day of the window.' },
-        ],
-      },
-      {
-        heading: 'Verifying a Subtraction and Working Backwards From Deadlines',
-        blocks: [
-          { type: 'p', text: 'Every subtraction can be checked by running it in reverse: add the same number of days back to the result and you must arrive at the original date. If 3 March 2026 minus 45 days gives 17 January 2026, then 17 January 2026 plus 45 days must give 3 March 2026. The weekday offers a second, faster check — a span of N days always shifts the weekday by N mod 7, so 45 days, which is 6 weeks and 3 days, moves the weekday back exactly three places.' },
-          { type: 'p', text: 'Counting backwards is also a real-world pattern, not just a checking trick. Shipping and transit rules often describe a window in one direction and are answered in the other: goods that must arrive within 14 days of dispatch, or a consignment that arrived today after 21 days in transit, both start from a known date and count backwards. Notice periods work the same way — a filing due 30 days before a hearing, a lease break that requires a quarter of notice — as do lookback windows such as the first day of a 90-day reporting period that ends today.' },
-          { type: 'p', text: 'When the rule is written in business days instead of calendar days, or needs a safety buffer, use the [Deadline Calculator](/calculators/deadline-calculator); it performs the same backward move with weekday-only counting.' },
-        ],
-      },
-      {
-        heading: 'Common Subtraction Mistakes',
-        blocks: [
-          {
-            type: 'ul',
-            items: [
-              'Assuming all months have the same length, which changes the answer whenever the count crosses a 30-day or 31-day month.',
-              'Forgetting that passing 1 January changes the year as well as the date.',
-              'Treating the reference date as day zero and off-by-one-ing the result by a day.',
-              'Not checking whether the span crosses 29 February in a leap year.',
-              'Using a calendar-day count for a deadline that is defined in business days.',
-            ],
-          },
-        ],
-      },
-      {
-        heading: 'Related Tools',
-        blocks: [
-          { type: 'p', text: 'Move forward instead with [Add Days to Date](/calculators/add-days), handle both directions with the [Date Calculator](/calculators/date-calculator), measure an existing span with [Days Between Dates](/calculators/days-between-dates), and count weekdays only with the [Working Days Calculator](/calculators/working-days).' },
-        ],
-      },
-    ],
-    guideSlugs: ['add-subtract-days', 'date-calculations'],
-    related: ['add-days', 'date-calculator', 'days-between-dates', 'days-calculator'],
-    faqs: [
-      ['What if I subtract more days than the number of days in the starting date?', 'The calculator continues into the previous month, and into the previous year if necessary. For example, 5 January 2026 minus 10 days is 26 December 2025.'],
-      ['Can I use this to work back from a deadline?', 'Yes. If a filing is due 30 days before a hearing, enter the hearing date and subtract 30 to find the latest filing date. For the same question with business-day counting or a safety buffer, use the [Deadline Calculator](/calculators/deadline-calculator) in backward mode.'],
-      ['Is subtracting days the same as entering a negative number of days?', 'Yes. Subtracting 30 days and adding -30 days produce the same date; both directions are handled by the same calendar arithmetic.'],
-      ['How do I find what date it was a certain number of days ago?', 'Set the reference date to today and enter the number of days. For a list of common lookbacks in both directions, see the [Days Calculator](/calculators/days-calculator).'],
-      ['How do I verify that a subtraction is correct?', 'Add the same number of days back to the result: if 3 March 2026 minus 45 days is 17 January 2026, then 17 January 2026 plus 45 days must return 3 March 2026. You can also check the weekday — 45 days is 6 weeks and 3 days, so the weekday must have moved back by exactly three.'],
-      ['Is subtracting 30 days the same as subtracting one month?', 'No. Thirty days is always 30 calendar days, while one calendar month is 28, 29, 30, or 31 days depending on where you start. From 31 March 2026, 30 days back is 1 March 2026, but one month back clamps to 28 February 2026 because February has no 31st.'],
-    ],
-    sources: [
-      ['NIST — Leap Seconds FAQs (leap years and leap seconds)', 'https://www.nist.gov/pml/time-and-frequency-division/leap-seconds-faqs'],
-      ['NIST — What Time is It? FAQs', 'https://www.nist.gov/pml/time-and-frequency-division/what-time-it-faqs'],
-      ['Royal Museums Greenwich — What is Greenwich Mean Time?', 'https://www.rmg.co.uk/stories/time/greenwich-mean-time-gmt'],
-      ['IANA — Time Zone Database', 'https://www.iana.org/time-zones'],
-    ],
-  },
   'recurring-date-calculator': {
     answer: 'Generate a schedule of recurring dates from any starting date. Pick a repeat rule — days, weeks, months, years, or selected weekdays — and the calculator lists every occurrence, states how it handles short months, and lets you download the schedule as CSV or an ICS calendar file.',
     intro: [
@@ -794,7 +538,7 @@ export const dateContent: Record<string, ToolContent> = {
       {
         heading: 'Recurring Dates vs Adding the Same Number of Days',
         blocks: [
-          { type: 'p', text: 'Adding the same number of days repeatedly is not the same as a calendar interval. A 30-day sequence starting 1 January steps through 30, 59, 90… and drifts against the months, while a monthly sequence stays on the same day number. Use [Add Days to Date](/calculators/add-days) when you need one future date, and this calculator when you need the whole series.' },
+          { type: 'p', text: 'Adding the same number of days repeatedly is not the same as a calendar interval. A 30-day sequence starting 1 January steps through 30, 59, 90… and drifts against the months, while a monthly sequence stays on the same day number. Use the [Date Calculator](/calculators/date-calculator) when you need one future date, and this calculator when you need the whole series.' },
           { type: 'p', text: 'When the rule is defined in business days — for example, a review that is due 10 working days after filing — the [Business Date Calculator](/calculators/business-date-calculator) moves a single date correctly, and the [Working Days Calculator](/calculators/working-days) counts weekdays across a span.' },
         ],
       },
@@ -837,7 +581,7 @@ export const dateContent: Record<string, ToolContent> = {
       },
     ],
     guideSlugs: ['add-subtract-days', 'date-calculations'],
-    related: ['add-days', 'deadline-calculator', 'working-days', 'quarter-calculator'],
+    related: ['date-calculator', 'deadline-calculator', 'working-days', 'quarter-calculator'],
     faqs: [
       ['Does the schedule count the first date?', 'Yes. The first date you enter is occurrence one; every later date is spaced from it, not from the previous result.'],
       ['What happens to a monthly schedule on 29, 30, or 31 in a short month?', 'You choose: use the last day of that month, or skip the month and keep the original day for months that have it.'],
@@ -991,7 +735,7 @@ export const dateContent: Record<string, ToolContent> = {
       {
         heading: 'Deadline, Countdown, and Days Between',
         blocks: [
-          { type: 'p', text: 'Three related tools answer nearby questions. This calculator computes a deadline date from a duration. The [Countdown Calculator](/time/countdown) shows how much time is left until a date you already know. [Days Between Dates](/calculators/days-between-dates) measures the gap between two existing dates. For a one-step move in either direction without buffers or business-day rules, [Add Days to Date](/calculators/add-days) and [Subtract Days From Date](/calculators/subtract-days) stay the quickest option.' },
+          { type: 'p', text: 'Three related tools answer nearby questions. This calculator computes a deadline date from a duration. The [Countdown Calculator](/time/countdown) shows how much time is left until a date you already know. [Days Between Dates](/calculators/days-between-dates) measures the gap between two existing dates. For a one-step move in either direction without buffers or business-day rules, use the [Date Calculator](/calculators/date-calculator).' },
         ],
       },
       {
@@ -1128,12 +872,12 @@ export const dateContent: Record<string, ToolContent> = {
       {
         heading: 'Related Tools',
         blocks: [
-          { type: 'p', text: 'Check the weekday of the resolved date with the [Day of the Week Calculator](/calendar/day-of-week), move it by a duration with [Add Days to Date](/calculators/add-days), and see which ordinal day of the year it is with the [Day of Year Calculator](/calendar/day-of-year).' },
+          { type: 'p', text: 'Check the weekday of the resolved date with the [Day of the Week Calculator](/calendar/day-of-week), move it by a duration with the [Date Calculator](/calculators/date-calculator), and see which ordinal day of the year it is with the [Day of Year Calculator](/calendar/day-of-year).' },
         ],
       },
     ],
     guideSlugs: ['date-time-formats', 'calendar-systems'],
-    related: ['day-of-week', 'date-calculator', 'day-of-year', 'add-days'],
+    related: ['day-of-week', 'date-calculator', 'day-of-year'],
     faqs: [
       ['Which date format should I use in a spreadsheet or database?', 'ISO 8601 (YYYY-MM-DD). It sorts correctly as text, removes day/month ambiguity, and is understood by virtually every system.'],
       ['How do I know if 04/05/2026 is April 5th or May 4th?', 'You cannot tell from the numbers alone. Select day-first or month-first to match how the date was written, or ask the source. The converter flags the ambiguity instead of guessing.'],

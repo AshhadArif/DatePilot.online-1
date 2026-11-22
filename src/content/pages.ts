@@ -33,7 +33,7 @@ export const contentPages: Record<string, ContentPageData> = {
           {
             type: 'p',
             text:
-              'DatePilot is independent. It is not owned by a calendar company, a payroll provider, or an advertising network. DatePilot has applied to Google AdSense and is awaiting review; no ads are currently displayed. If advertising is enabled after approval, it will remain separate from editorial decisions. See the [advertising policy](/advertising-policy) for the current status and commitments.',
+              'DatePilot is independent. It is not owned by a calendar company, a payroll provider, or an advertising network. Its latest AdSense review identified a low-value-content issue, and the site is being improved before another review is requested. No ads are currently displayed. If advertising is enabled, it will remain separate from editorial decisions. See the [advertising policy](/advertising-policy) for the current status and commitments.',
           },
         ],
       },
@@ -168,7 +168,7 @@ export const contentPages: Record<string, ContentPageData> = {
           {
             type: 'p',
             text:
-              'DatePilot has applied to Google AdSense and is awaiting review. No ads are currently displayed and the site is not yet funded by advertising. If approved, advertisers will not see articles before publication, request changes, or buy recommendations. DatePilot does not accept paid reviews, sponsored articles, or paid links. The [advertising policy](/advertising-policy) explains the current status and editorial commitments.',
+              'DatePilot\'s latest AdSense review identified a low-value-content issue. The site is being improved before another review is requested. No ads are currently displayed. If advertising is enabled, advertisers will not see articles before publication, request changes, or buy recommendations. DatePilot does not accept paid reviews, sponsored articles, or paid links. The [advertising policy](/advertising-policy) explains the current status and editorial commitments.',
           },
           {
             type: 'p',
@@ -192,7 +192,7 @@ export const contentPages: Record<string, ContentPageData> = {
       ['Who writes DatePilot content?', 'Fahad, the founder and editor, writes and reviews the content and maintains the calculators. There is no anonymous content team. The about the editor page describes the role and the review process.'],
       ['Does DatePilot use AI to write pages?', 'Automation may assist with drafting, consistency checks, and test generation. A human editor decides what is published and reviews the page, examples, and cited sources. Automated checks do not replace checking the underlying rule.'],
       ['How often is content reviewed?', 'Pages are reviewed when materially edited, when a relevant source or rule changes, or when a correction is confirmed. DatePilot does not claim a fixed review interval for every page. Material changes are listed on the changelog.'],
-      ['Can advertisers influence the content?', 'No ads are currently displayed because DatePilot is awaiting Google AdSense review. If the site is approved, advertising will remain separate from editorial decisions. DatePilot does not accept paid reviews, sponsored articles, or paid links. See the advertising policy for details.'],
+      ['Can advertisers influence the content?', 'No ads are currently displayed. DatePilot is improving its site after an AdSense low-value-content review notice and has not yet requested another review. Any future advertising will remain separate from editorial decisions. DatePilot does not accept paid reviews, sponsored articles, or paid links. See the advertising policy for details.'],
     ],
   },
 
@@ -337,7 +337,7 @@ export const contentPages: Record<string, ContentPageData> = {
               ['Age Difference Calculator', 'Input order; anniversary decomposition; total days'],
               ['Days Between Dates', 'Exclusive counting; February; leap years'],
               ['Days Calculator', 'Both directions; whole-day validation'],
-              ['Add Days / Subtract Days', 'Month and year overflow; weekends; clamping'],
+              ['Date Calculator', 'Positive and negative amounts; day, week, month, and year units; month-end clamping'],
               ['Working Days', 'Inclusive endpoints; Monday-to-Friday rule'],
               ['Business Date Calculator', 'Weekend skipping in both directions; start-date exclusion'],
               ['Recurring Date Calculator', 'Month-end clamp/skip; weekday intervals; limit handling'],
@@ -389,6 +389,8 @@ export const contentPages: Record<string, ContentPageData> = {
           {
             type: 'ul',
             items: [
+              '22 November 2026 — Reviewed all 58 rendered routes after the AdSense low-value notice. Removed repeated guide and tool-methodology boilerplate, consolidated repeated age-calculation instructions, removed an unverified site-launch date from page structured data, and added a generated-page audit for route content, metadata, canonical URLs, internal links, AdSense code, and ads.txt.',
+              '22 November 2026 — Consolidated the near-duplicate Add Days and Subtract Days pages into the Date Calculator, which supports positive and negative amounts and all four calendar units. Added permanent redirects, updated related-tool links, corrected the published AdSense status to say the site is improving before requesting another review, and made the footer review date come from the route review record.',
               '20 November 2026 — Corrected advertising and privacy disclosures to match the current AdSense review status. Added worked examples to the homepage showing how DatePilot handles calendar-month clamping, ISO week-years, and leap-day birthdays.',
               '20 November 2026 — Clarified the editorial review and correction-reporting descriptions so they do not promise a fixed review cycle or response time. Clarified that reproducible examples cover named cases, not every possible input.',
               '20 November 2026 — Reorganized the guide directory around the problems its articles solve, expanded the general FAQ with concrete calendar and time-zone edge cases, and added task-specific questions to the calculator directories.',
@@ -440,7 +442,7 @@ export const contentPages: Record<string, ContentPageData> = {
     title: 'Advertising status and editorial independence',
     eyebrow: 'ADVERTISING STATUS',
     lead:
-      'DatePilot has applied to Google AdSense and is awaiting review. No ads are currently displayed and the site is not yet funded by advertising. This page explains the current setup and the commitments that will apply if ads are enabled.',
+      'DatePilot is not currently approved to show AdSense ads. Its latest review identified a low-value-content issue, and the site is being improved before another review is requested. No ads are currently displayed. This page explains the current setup and the commitments that will apply if ads are enabled.',
     showAuthor: true,
     sections: [
       {
@@ -449,7 +451,7 @@ export const contentPages: Record<string, ContentPageData> = {
           {
             type: 'p',
             text:
-              'DatePilot has applied to Google AdSense and is awaiting review. The AdSense review script is installed, but no ads are currently displayed and there are no active ad placements. Loading Google-hosted code may send technical request data, such as an IP address and browser information, to Google. If approved and enabled, Google and its partners may use data or cookies to select, deliver, measure, and limit ads. DatePilot does not sell advertising space directly or choose individual ads.',
+              'DatePilot is not currently approved to show AdSense ads. The AdSense review script is installed, but no ads are currently displayed and there are no active ad placements. Loading Google-hosted code may send technical request data, such as an IP address and browser information, to Google. If approved and enabled, Google and its partners may use data or cookies to select, deliver, measure, and limit ads. DatePilot does not sell advertising space directly or choose individual ads.',
           },
           {
             type: 'p',
@@ -528,9 +530,9 @@ export const contentPages: Record<string, ContentPageData> = {
       },
     ],
     faqs: [
-      ['Does DatePilot sell sponsored content?', 'No. DatePilot does not accept paid reviews, sponsored articles, paid rankings, or paid links. The site is awaiting Google AdSense review; no ads are currently displayed.'],
+      ['Does DatePilot sell sponsored content?', 'No. DatePilot does not accept paid reviews, sponsored articles, paid rankings, or paid links. The site is not currently approved to show AdSense ads, and no ads are displayed.'],
       ['Can I use DatePilot without personalised ads?', 'No ads are currently displayed. If advertising is enabled, the available choices will depend on your region; before personalised ads are served in the EEA, UK, or Switzerland, DatePilot will configure a Google-certified consent management platform.'],
-      ['Why does DatePilot show ads?', 'DatePilot has applied to Google AdSense but is awaiting review, so no ads are currently displayed. If approved, advertising may help support the free calculators and guides.'],
+      ['Why does DatePilot show ads?', 'DatePilot does not currently show ads. Its latest AdSense review identified a low-value-content issue, and the site is being improved before another review is requested.'],
     ],
   },
 

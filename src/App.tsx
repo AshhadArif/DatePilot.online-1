@@ -15,7 +15,6 @@ import {
   AUTHOR_ROLE,
   CONTACT_EMAIL,
   OPERATOR,
-  SITE_LAUNCH_DATE,
   SITE_NAME,
   SITE_URL,
   authorRef,
@@ -29,13 +28,11 @@ type Tool = { slug: string; title: string; seoTitle: string; category: 'Date' | 
 type Page = { slug: string; title: string; description: string }
 
 const tools: Tool[] = [
-  { slug: 'date-calculator', title: 'Date Calculator', seoTitle: 'Date Calculator — Add or Subtract Days From a Date', category: 'Date', summary: 'Add calendar time to a starting date.', method: 'Calendar arithmetic is used for the result.' },
+  { slug: 'date-calculator', title: 'Date Calculator', seoTitle: 'Date Calculator — Add or Subtract Days From a Date', category: 'Date', summary: 'Move a date forward or backward by calendar units.', method: 'Positive amounts move forward; negative amounts move backward using calendar arithmetic.' },
   { slug: 'age-calculator', title: 'Age Calculator', seoTitle: 'Age Calculator — Calculate Exact Age in Years, Months, Days', category: 'Date', summary: 'Find an exact age between two dates.', method: 'Age is counted by calendar anniversaries.' },
   { slug: 'age-difference-calculator', title: 'Age Difference Calculator', seoTitle: 'Age Difference Calculator — Gap Between Two Birth Dates', category: 'Date', summary: 'Find the age gap between two people.', method: 'The gap is counted by calendar anniversaries, in either input order.' },
   { slug: 'days-between-dates', title: 'Days Between Dates', seoTitle: 'Days Between Dates — Date Difference Calculator', category: 'Date', summary: 'Measure the elapsed days between dates.', method: 'The result excludes both named endpoints.' },
   { slug: 'days-calculator', title: 'Days Calculator', seoTitle: 'Days Calculator — Days From Today, Before & Between Dates', category: 'Date', summary: 'Find dates from a day count in either direction.', method: 'Both directions are calculated from the reference date.' },
-  { slug: 'add-days', title: 'Add Days to Date', seoTitle: 'Add Days to Date — Calculate a Future Date in Days', category: 'Date', summary: 'Find a future date by adding days.', method: 'The result moves through calendar dates.' },
-  { slug: 'subtract-days', title: 'Subtract Days from Date', seoTitle: 'Subtract Days From Date — Calculate a Date in the Past', category: 'Date', summary: 'Find an earlier date by subtracting days.', method: 'Month and year boundaries are handled as calendar dates.' },
   { slug: 'working-days', title: 'Working Days Calculator', seoTitle: 'Working Days Calculator — Count Business Days Between Dates', category: 'Date', summary: 'Count weekdays between two dates.', method: 'Monday through Friday count; holidays are not assumed.' },
   { slug: 'business-date-calculator', title: 'Business Date Calculator', seoTitle: 'Business Date Calculator — Add or Subtract Business Days', category: 'Date', summary: 'Move a date forward or backward by business days.', method: 'Monday through Friday count; holidays are not assumed.' },
   { slug: 'recurring-date-calculator', title: 'Recurring Date Calculator', seoTitle: 'Recurring Date Calculator — Generate a Schedule of Dates', category: 'Date', summary: 'Generate a schedule of repeating dates.', method: 'Occurrences are spaced by calendar intervals from the first date.' },
@@ -123,7 +120,7 @@ const routeSeo = (path: string): Seo => {
     '/editorial-policy': { title: 'Editorial Standards and Review Process — DatePilot', description: 'How DatePilot researches, writes, checks, reviews, and corrects its date calculators and guides, including its use of automation.' },
     '/methodology': { title: 'How DatePilot Tests Its Calculators — Methodology', description: 'The calculation pipeline, test strategy, reproducible examples, known limitations, and tool-by-tool verification focus behind DatePilot.' },
     '/changelog': { title: 'DatePilot Changelog — Site and Content History', description: 'A dated record of material changes to DatePilot calculators, guides, sources, policies, and trust pages.' },
-    '/advertising-policy': { title: 'Advertising Status and Editorial Independence — DatePilot', description: 'DatePilot has applied to Google AdSense. Read the current status, editorial commitments, and planned privacy safeguards.' },
+    '/advertising-policy': { title: 'Advertising Status and Editorial Independence — DatePilot', description: 'DatePilot is not currently approved to show AdSense ads. Read the current status, editorial commitments, and planned privacy safeguards.' },
     '/contact': { title: 'Contact DatePilot — Report Issues and Corrections', description: 'Report incorrect calculations, broken links, accessibility issues, or other problems with DatePilot.' },
     '/privacy-policy': { title: 'Privacy Policy — How DatePilot Handles Your Data', description: 'DatePilot calculators run in your browser. Read how we handle calculator inputs, the AdSense review code, cookies, and server logs.' },
     '/cookie-policy': { title: 'Cookie Policy — DatePilot', description: 'Learn how DatePilot handles browser data now and what may change if Google AdSense approves the site.' },
@@ -185,7 +182,6 @@ function updateSeo(path: string) {
     isPartOf: { '@id': `${SITE_URL}/#website` },
     inLanguage: 'en',
     isAccessibleForFree: true,
-    datePublished: SITE_LAUNCH_DATE,
     author: authorRef,
     publisher: publisherRef,
     reviewedBy: authorRef,
@@ -377,7 +373,7 @@ function Footer({ go }: { go: (path: string) => void }) {
       <div><small>Support</small>{link('/contact', 'Contact')}{link('/report-an-error', 'Report an error')}{link('/disclaimer', 'Disclaimer')}</div>
       <div><small>Legal</small>{link('/privacy-policy', 'Privacy Policy')}{link('/cookie-policy', 'Cookie Policy')}{link('/terms', 'Terms of Use')}</div>
     </div>
-    <small className="footer-note">Built for clarity. Calculator inputs stay in your browser. Last reviewed {reviewedLabel('2026-11-20')}.</small>
+    <small className="footer-note">Built for clarity. Calculator inputs stay in your browser. Last reviewed {reviewedLabel(lastmod['/'])}.</small>
   </footer>
 }
 
@@ -440,7 +436,7 @@ function Home({ go }: { go: (path: string) => void }) {
         <p className="eyebrow">HOW THIS SITE IS RUN</p>
         <h2>Built independently. Reviewed before it ships.</h2>
         <p>DatePilot is written and maintained by {AUTHOR_NAME}, a {AUTHOR_ROLE.toLowerCase()} who focuses on date, calendar, and time calculations. Every calculator has a stated method, verified examples, and known limits. Pages are reviewed before publication and when a correction is confirmed.</p>
-        <p>DatePilot has applied to Google AdSense, and the site is awaiting review. No ads are currently displayed and the site is not yet funded by advertising. If approved, advertising will not influence tool logic, editorial wording, or source selection.</p>
+        <p>DatePilot's latest AdSense review identified a low-value-content issue. The site is being improved before another review is requested. No ads are currently displayed, and advertising will not influence tool logic, editorial wording, or source selection.</p>
         <div className="trust-actions">
           <NavLink to={AUTHOR_PATH} go={go} className="primary">Meet the editor <span>→</span></NavLink>
           <NavLink to="/editorial-policy" go={go} className="quiet">Read the editorial standards</NavLink>
@@ -484,9 +480,9 @@ function Calculator({ tool }: { tool: Tool }) {
       return setResult(value % 400 === 0 || (value % 4 === 0 && value % 100 !== 0) ? `${value} is a leap year with 366 days.` : `${value} is not a leap year. It has 365 days.`)
     }
     if (Number.isNaN(a.getTime())) return setError('Please enter a valid start date.')
-    if (tool.slug === 'add-days' || tool.slug === 'subtract-days' || tool.slug === 'date-calculator') {
-      if (Number.isNaN(n)) return setError('Please enter a valid number to add.')
-      const delta = tool.slug === 'subtract-days' ? -n : n
+    if (tool.slug === 'date-calculator') {
+      if (Number.isNaN(n)) return setError('Please enter a valid amount.')
+      const delta = n
       const moved = moveUnit === 'months' ? addMonthsClamped(a, delta)
         : moveUnit === 'years' ? addMonthsClamped(a, delta * 12)
           : shiftDays(a, moveUnit === 'weeks' ? delta * 7 : delta)
@@ -548,13 +544,13 @@ function Calculator({ tool }: { tool: Tool }) {
   const startLabel = tool.slug === 'age-calculator' ? 'Birth date' : tool.slug === 'days-calculator' ? 'Reference date' : 'Start date'
   const endLabel = tool.slug === 'age-calculator' || tool.slug === 'countdown' ? 'Target date' : 'End date'
   const needsEnd = ['days-between-dates', 'age-calculator', 'working-days', 'countdown'].includes(tool.slug)
-  const needsDays = ['add-days', 'subtract-days', 'date-calculator', 'days-calculator'].includes(tool.slug)
+  const needsDays = ['date-calculator', 'days-calculator'].includes(tool.slug)
 
   return <div className="calculator">
     <div className="form-grid">
       {tool.slug === 'leap-year'
         ? <label className="field"><span>Calendar year</span><input type="number" value={year} onChange={(event) => setYear(event.target.value)} min="1" /></label>
-        : <>{tool.slug !== 'countdown' && field(startLabel, start, setStart)}{needsEnd && field(endLabel, end, setEnd)}{needsDays && <label className="field"><span>{moveUnit === 'days' ? 'Days' : moveUnit === 'weeks' ? 'Weeks' : moveUnit === 'months' ? 'Months' : 'Years'}</span><input type="number" value={amount} onChange={(event) => setAmount(event.target.value)} /></label>}{['add-days', 'subtract-days', 'date-calculator'].includes(tool.slug) && <label className="field"><span>Unit</span>
+        : <>{tool.slug !== 'countdown' && field(startLabel, start, setStart)}{needsEnd && field(endLabel, end, setEnd)}{needsDays && <label className="field"><span>{moveUnit === 'days' ? 'Days' : moveUnit === 'weeks' ? 'Weeks' : moveUnit === 'months' ? 'Months' : 'Years'}</span><input type="number" value={amount} onChange={(event) => setAmount(event.target.value)} /></label>}{tool.slug === 'date-calculator' && <label className="field"><span>Unit</span>
           <select value={moveUnit} onChange={(event) => setMoveUnit(event.target.value as 'days' | 'weeks' | 'months' | 'years')}>
             <option value="days">Days</option>
             <option value="weeks">Weeks</option>
@@ -564,6 +560,7 @@ function Calculator({ tool }: { tool: Tool }) {
         </label>}</>
       }
     </div>
+    {tool.slug === 'date-calculator' && <p className="calculator-hint">Positive amounts move forward. Enter a negative amount to move backward.</p>}
     <div className="calculator-actions">
       <button className="primary" onClick={calculate}>Calculate result <span>→</span></button>
       <button className="reset-btn" onClick={reset} type="button">Reset</button>
@@ -852,7 +849,6 @@ function ToolMethodology({ tool, go, sources }: { tool: Tool; go: (path: string)
         </tr>)}</tbody>
       </table>
     </div>
-    <p className="method-note">These examples were produced with the same calculation functions the tool uses. Enter the inputs above to reproduce them.</p>
     <h3>Known limitations</h3>
     <ul>{trust.limits.map((item) => <li key={item}>{item}</li>)}</ul>
     {allSources && allSources.length > 0 && <p className="method-note">Rules and definitions: {allSources.map(([label, url], index) => <span key={url}>{index > 0 ? ', ' : ''}<a href={url} target="_blank" rel="noopener noreferrer">{label}</a></span>)}</p>}
@@ -1001,12 +997,12 @@ function ToolIndex({ category, go }: { category?: Tool['category']; go: (path: s
   const title = category === 'Time' ? 'Put every time zone in context.' : category === 'Calendar' ? 'See the shape of the calendar.' : category === 'Date' ? 'Work with dates, without the guesswork.' : category === 'Convert' ? 'Know exactly what the date means.' : 'All the tools, in one place.'
   const explanation = category === 'Time' ? 'Compare elapsed time, count down to a moment, and convert local times using named time zones.' : category === 'Calendar' ? 'Check weekdays, ISO week numbers, and leap years using clearly stated calendar conventions.' : category === 'Date' ? 'Plan deadlines, compare date ranges, add or subtract days, and count working days.' : category === 'Convert' ? 'Translate dates between ISO 8601, US, and European formats, and resolve ambiguous numeric dates with an explicit day and month order.' : 'Start with the task you need to solve, then follow the method and related guidance on each tool page.'
   const hubFaqs: [string, string][] = !category ? [
-    ['Which calculator should I use to find a date a number of days away?', 'Use Add Days or Subtract Days when you have one starting date and a day count. Use Days Between Dates when you already know both endpoints. For month-based schedules, use the Date Calculator and choose calendar months explicitly.'],
+    ['Which calculator should I use to find a date a number of days away?', 'Use the Date Calculator with a positive amount to move forward or a negative amount to move backward. Use Days Between Dates when you already know both endpoints. For month-based schedules, choose calendar months explicitly.'],
     ['What is the difference between working days and business days here?', 'Both use a weekday pattern and exclude weekends according to the selected rule. DatePilot does not automatically remove public holidays, company closures, or country-specific nonworking days; verify those separately.'],
     ['Which tool handles a deadline with a buffer?', 'Use the Deadline Calculator to move forward from a start or work backward from a target, then set the duration and buffer that match your plan. Check the governing contract or official rule for endpoint and holiday conventions.'],
     ['Where can I learn the rules behind a result?', 'Each calculator page explains its method and assumptions. The guides cover shared topics such as date counting, working days, leap years, time zones, and ISO week numbering.'],
   ] : category === 'Date' ? [
-    ['Should I use Days Between Dates or Add Days?', 'Use Days Between Dates when both dates are known and you want the gap. Use Add Days when you know a starting date and want to find the later date. The former reports an exclusive elapsed gap; for inclusive schedules, check the convention your task requires.'],
+    ['Should I use Days Between Dates or the Date Calculator?', 'Use Days Between Dates when both dates are known and you want the gap. Use the Date Calculator when you know a starting date and want to move forward or backward by a calendar amount. Days Between Dates reports an exclusive elapsed gap; for inclusive schedules, check the convention your task requires.'],
     ['Does one month mean 30 days?', 'No. A calendar month varies from 28 to 31 days. DatePilot’s month arithmetic uses calendar months and clamps to the last valid day when the destination month is shorter.'],
     ['Are public holidays removed from working-day results?', 'No. The tools use the stated weekday pattern and do not include a hidden national or regional holiday list. Check the holiday calendar relevant to your workplace or deadline.'],
   ] : category === 'Calendar' ? [
@@ -1101,7 +1097,6 @@ function GuidePage({ guide, go }: { guide: Page; go: (path: string) => void }) {
     </section>}
     {content.sources && content.sources.length > 0 && <section className="seo-content">
       <h2>Sources and further reading</h2>
-      <p>These standards, databases, and reference works back up the rules explained on this page. Each link opens the original source.</p>
       <ul className="source-list">
         {content.sources.map(([label, url]) => <li key={url}><a href={url} target="_blank" rel="noopener noreferrer">{label}</a></li>)}
       </ul>
@@ -1176,7 +1171,7 @@ function TrustPage({ kind, go }: { kind: string; go: (p: string) => void }) {
         ['What DatePilot is', 'DatePilot is a focused date, calendar, and time reference for people planning work, checking dates, comparing times, and learning the rules behind everyday calendar questions. It is built around a small set of useful tools rather than a large collection of unrelated calculators.'],
         ['How the content is made', 'Calculators are built first. Each one is then described with its purpose, inputs, method, assumptions, worked examples, limitations, and the standards or reference works it relies on. Guides explain the rules behind those calculations. Every page is reviewed by the editor before publication, and automation is used only to help draft, check, and test material, not as an author. Read the [editorial standards](/editorial-policy) for the full process.'],
         ['How accuracy is checked', 'We make calculations inspectable. Inputs are labeled, conventions are stated, and the explanation beside a result describes what it includes. Pages are checked against reproducible examples and edge cases such as leap days, month boundaries, weekdays, ISO week numbering, and time-zone transitions. The [methodology page](/methodology) describes the pipeline and gives worked examples you can reproduce.'],
-        ['Advertising status', 'DatePilot has applied to Google AdSense and is awaiting review. No ads are currently displayed, and the site is not yet funded by advertising. The AdSense review code is installed, but there are no active ad placements. If approved, advertising will remain separate from editorial decisions. See the [advertising policy](/advertising-policy) and [privacy policy](/privacy-policy) for details.'],
+        ['Advertising status', 'DatePilot is not currently approved to show AdSense ads. Its latest review identified a low-value-content issue, and the site is being improved before another review is requested. No ads are displayed, and there are no active ad placements. See the [advertising policy](/advertising-policy) and [privacy policy](/privacy-policy) for details.'],
         ['How DatePilot is built', 'DatePilot is a static web application. Calculator logic runs entirely in your browser using standard JavaScript date APIs and the browser\'s IANA timezone database. Calculator inputs are not sent to a server.'],
         ['What DatePilot is not', 'DatePilot is not an official government service, legal adviser, medical adviser, financial adviser, or a substitute for the organization responsible for an important deadline or decision. It does not claim professional credentials it does not have.'],
         ['Corrections and contact', `If you find an incorrect calculation, inaccurate explanation, broken link, or accessibility issue, report it through the [Contact page](/contact) or email ${CONTACT_EMAIL}. Confirmed corrections are fixed and recorded in the [Changelog](/changelog).`],
@@ -1195,7 +1190,7 @@ function TrustPage({ kind, go }: { kind: string; go: (p: string) => void }) {
       title: 'Privacy Policy',
       sections: [
         ['Calculator behavior', 'All DatePilot calculators run entirely in your browser. The dates, times, and other values you enter are processed locally using JavaScript. Calculator inputs are not transmitted to, stored on, or accessed by any server, and we do not keep a history of your calculations.'],
-        ['Advertising and Google AdSense', 'DatePilot has applied to Google AdSense and is awaiting review. The AdSense review script is present, but no ads are currently displayed and there are no active ad placements. Loading Google-hosted code may send technical request data, such as your IP address and browser information, to Google. If the site is approved and ads are enabled, Google and its partners may process data or use cookies to serve, measure, and personalise ads. Google describes its advertising data practices at policies.google.com/technologies/partner-sites. Before serving personalised ads to visitors in the EEA, UK, or Switzerland, DatePilot will configure an applicable Google-certified consent management platform.'],
+        ['Advertising and Google AdSense', 'DatePilot is not currently approved to show AdSense ads. The AdSense review script is present, but no ads are displayed and there are no active ad placements. Loading Google-hosted code may send technical request data, such as your IP address and browser information, to Google. If the site is approved and ads are enabled, Google and its partners may process data or use cookies to serve, measure, and personalise ads. Google describes its advertising data practices at policies.google.com/technologies/partner-sites. Before serving personalised ads to visitors in the EEA, UK, or Switzerland, DatePilot will configure an applicable Google-certified consent management platform.'],
         ['Cookies', 'DatePilot does not set first-party analytics or session cookies of its own. The AdSense review script is installed, but there are no active ad placements in the page markup. If advertising is enabled after approval, Google or its partners may use cookies as described above and in the [Cookie Policy](/cookie-policy). You can block or delete cookies through your browser settings.'],
         ['Analytics', 'DatePilot does not currently run a first-party analytics product. If privacy-respecting analytics are added later, this policy will describe them before they are activated, and they will be used only to understand aggregate usage rather than to identify individual visitors.'],
         ['Server logs', 'The site is served by a hosting provider that processes standard request logs, such as IP address, browser type, pages requested, and timestamps, for security, abuse prevention, and operations. Those logs are handled under the provider\'s privacy terms and are not combined with calculator inputs, which never leave your browser.'],
@@ -1227,7 +1222,7 @@ function TrustPage({ kind, go }: { kind: string; go: (p: string) => void }) {
         ['What DatePilot provides', 'DatePilot provides general-purpose date, calendar, and time calculation tools and explanatory content. Results are informational and should be verified for any consequential use.'],
         ['Not professional advice', 'DatePilot does not provide legal, medical, financial, or other professional advice. Use DatePilot results as a starting point and verify with the responsible authority when accuracy matters.'],
         ['Accuracy and review', 'DatePilot aims for accuracy but does not guarantee that all results are error-free. Calculation methods, calendar conventions, and timezone rules are stated on each tool page, and pages are reviewed before publication and after confirmed corrections. Report errors using the [Contact page](/contact).'],
-        ['Advertising', 'DatePilot has applied to Google AdSense and is awaiting review. No ads are currently displayed. If advertising is enabled after approval, it will remain separate from editorial content and will not influence calculations, explanations, or source selection. Any advertising cookies will be described in the [Privacy Policy](/privacy-policy) and [Cookie Policy](/cookie-policy).'],
+        ['Advertising', 'DatePilot is not currently approved to show AdSense ads, and none are displayed. If advertising is enabled after approval, it will remain separate from editorial content and will not influence calculations, explanations, or source selection. Any advertising cookies will be described in the [Privacy Policy](/privacy-policy) and [Cookie Policy](/cookie-policy).'],
         ['External links', 'DatePilot links to standards bodies, government guidance, and other reference sites. Those sites are not controlled by DatePilot, and their content, availability, and policies are their own responsibility.'],
         ['Availability', 'DatePilot is provided as-is and may be unavailable at times. We do not guarantee uninterrupted access.'],
         ['Limitation of liability', 'DatePilot is not liable for any decisions, losses, or damages resulting from use of the site or its calculations.'],
@@ -1241,7 +1236,7 @@ function TrustPage({ kind, go }: { kind: string; go: (p: string) => void }) {
         ['General purpose only', 'DatePilot provides general-purpose date, calendar, and time calculations for informational use. Results are not guaranteed to be suitable for any specific purpose.'],
         ['Not official or legal advice', 'DatePilot is not a government agency, legal service, financial adviser, or medical service. Do not rely on DatePilot results for legal deadlines, tax filings, medical decisions, contractual obligations, or other consequential matters without verifying with the responsible authority.'],
         ['Accuracy', 'DatePilot uses standard calendar rules and browser timezone data. While we aim for accuracy, calculation errors may exist. Each tool states its assumptions and known limits, and confirmed errors are corrected and recorded. Report errors using the [Contact page](/contact).'],
-        ['Advertising', 'DatePilot has applied to Google AdSense and is awaiting review. No ads are currently displayed. If ads are enabled after approval, they are not endorsements, and advertising will not influence editorial content.'],
+        ['Advertising', 'DatePilot is not currently approved to show AdSense ads, and none are displayed. If ads are enabled after approval, they are not endorsements, and advertising will not influence editorial content.'],
         ['Third-party services', 'DatePilot uses a hosting provider and loads the Google AdSense review script. If advertising is enabled later, Google will provide the ads subject to the applicable policies and privacy choices. Third-party services have their own terms and privacy policies.'],
       ]
     },
@@ -1267,7 +1262,6 @@ function TrustPage({ kind, go }: { kind: string; go: (p: string) => void }) {
     <p className="eyebrow accent">DATEPILOT</p>
     <h1>{page.title}</h1>
     <AuthorByline path={`/${kind}`} go={go} />
-    {['privacy-policy', 'cookie-policy', 'terms', 'disclaimer'].includes(kind) && <p className="doc-note">DatePilot has applied to Google AdSense and is awaiting review. No ads are currently displayed. Read the <NavLink className="inline-link" to="/advertising-policy" go={go}>advertising policy</NavLink>.</p>}
     {page.sections.map(([heading, paragraph]) => <section className="seo-content legal-section" key={heading}><h2>{heading}</h2><p><RichText text={paragraph} go={go} /></p></section>)}
     {kind === 'contact' && <div className="legal-review"><p><strong>Email:</strong> <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p><p><strong>Response time:</strong> Response time can vary</p></div>}
     {kind === 'report-an-error' && <div className="legal-review"><p><strong>Email:</strong> <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p><p><strong>Subject line tip:</strong> Include "Accessibility" for accessibility issues</p></div>}

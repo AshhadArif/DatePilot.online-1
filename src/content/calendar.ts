@@ -72,7 +72,7 @@ export const calendarContent: Record<string, ToolContent> = {
         heading: 'Weekdays for Planning and Schedules',
         blocks: [
           { type: 'p', text: 'Knowing the weekday of a date is usually the first step in a schedule. A deadline that lands on a Saturday needs moving, a project start on a Monday behaves differently from one on a Friday, and a booking spanning a weekend has fewer working days than the calendar count suggests.' },
-          { type: 'p', text: 'Chain the weekday check together with the other date tools: find the date with [Add Days to Date](/calculators/add-days), then check its weekday here, then count only weekdays with the [Working Days Calculator](/calculators/working-days).' },
+          { type: 'p', text: 'Chain the weekday check together with the other date tools: find the date with the [Date Calculator](/calculators/date-calculator), then check its weekday here, then count only weekdays with the [Working Days Calculator](/calculators/working-days).' },
           { type: 'p', text: 'Weekday cycles also underpin week numbering, which has its own rules — see the [Week Number Calculator](/calendar/week-number).' },
         ],
       },
